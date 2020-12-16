@@ -9,21 +9,84 @@
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/each-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Bungee & Source Sans Pro Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <span class="nav-text logo">tweeter</span>
+      <div class="write-tweet nav-text">
+        <span><strong>Write</strong> a new tweet</span>
+        <i class="fas fa-angle-double-down"></i>
+      </div>
     </nav>
 
+    <header class="main-header">
+      <div>
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <div>
+          <h2 class="user-profile-name"><strong>Saad</strong> <span>Kureshi</span></h2>
+      </div>
+    </header>
+
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets" method="POST">
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          <div class="btn-char-parent">
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <section class="posted-tweets">
+        <article>
+          <header>
+            <i class="fas fa-user-secret fa-2x"></i>
+            <span class="username-in-tweet">Holmes</span>
+            <span class="user-handle">@sherlock</span>
+          </header>
+          <p>
+            You see, but you do not observe.
+          </p>
+          <footer class="each-tweet-footer">
+            <span class="tweet-post-date">5 days ago</span>
+            <div>
+              <i class="fas fa-flag fa-sm"></i>
+              <i class="fas fa-retweet fa-sm"></i>
+              <i class="far fa-heart fa-sm"></i>
+            </div>
+          </footer>
+        </article>
+      </section>
+    </main>
+    <footer>
+      2020
+    </footer>
+    <script src="./scripts/composer-char-counter.js"></script>
   </body>
 </html>
+
+<!-- <i class="fas fa-user-nurse"></i>
+<i class="fas fa-user-md"></i>
+<i class="fas fa-user-graduate"></i>
+<i class="fas fa-user-astronaut"></i> -->

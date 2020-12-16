@@ -1,0 +1,45 @@
+article {
+  border: black solid;
+  padding: 2rem 2rem 0rem;
+  margin-bottom: 1.5rem;
+}
+
+article:hover {
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+  font-weight: bold;
+}
+
+article:hover .user-handle {
+  visibility: visible;
+}
+
+header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header > .user-handle {
+  margin-left: auto;
+  visibility: hidden;
+}
+
+.each-tweet-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: solid black;
+  padding: 1rem 0rem;
+}
+
+.each-tweet-footer > span {
+  margin-right: auto;
+}
+
+.username-in-tweet {
+  padding-left: 0.5rem;
+}
+
+.tweet-post-date {
+  font-size: 1rem;
+}

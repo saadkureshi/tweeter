@@ -1,0 +1,29 @@
+main {
+  width: 90%;
+  margin: auto;
+ }
+
+.btn-char-parent {
+  display: flex;
+  justify-content: space-between;
+  border-top: black solid;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  font-family: 'Bungee', cursive; 
+}
+
+button {
+  background-color: #4056A1;
+  color: white;
+}
+.new-tweet {
+  font-weight: bold;
+}
+
+#tweet-text {
+  background-color: #f4f1ec;
+  border: transparent;
+  resize: none;
+  outline: none;
+  width: 100%;
+}
