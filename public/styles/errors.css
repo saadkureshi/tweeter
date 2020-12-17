@@ -1,0 +1,13 @@
+.error-msg-box {
+  width: 50%;
+  margin: auto;
+  color: red;
+  border: red solid;
+  border-radius: 8px;
+  display: none;
+  text-align: center;
+}
+
+.fa-exclamation-triangle, .error-msg {
+  padding: 1rem;
+}

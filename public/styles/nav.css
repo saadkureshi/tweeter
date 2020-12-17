@@ -26,6 +26,29 @@ nav {
   align-items: center;
 }
 
-.fa-angle-double-down {
+#nav-btn-icon {
   color: red;
 }
+
+#write-new-tweet-btn > p {
+  margin: 0;
+}
+
+#write-new-tweet-btn {
+  border-radius: 6px;
+  border: white solid thin;
+  background: none;
+  cursor: pointer;
+  color: white;
+  outline-color: white;
+}
+
+#write-new-tweet-btn:hover {
+  transition: all 0.2s linear;
+  background: #bbbbbb;
+}
+
+#write-new-tweet-btn:focus {
+  border: white solid thin;
+}
+

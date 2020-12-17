@@ -12,12 +12,13 @@ main {
   font-family: 'Bungee', cursive; 
 }
 
-button {
-  background-color: #4056A1;
-  color: white;
-}
 .new-tweet {
   font-weight: bold;
+}
+
+#tweet-button {
+  background-color: #4056A1;
+  color: white;
 }
 
 #tweet-text {
@@ -26,4 +27,8 @@ button {
   resize: none;
   outline: none;
   width: 100%;
+}
+
+#submit-tweet {
+  display: none;
 }

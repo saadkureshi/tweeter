@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/each-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/errors.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -32,8 +33,10 @@
     <nav>
       <span class="nav-text logo">tweeter</span>
       <div class="write-tweet nav-text">
-        <span><strong>Write</strong> a new tweet</span>
-        <i class="fas fa-angle-double-down"></i>
+        <button id="write-new-tweet-btn">
+          <p><strong>Write</strong> a new tweet</p>
+          <i id="nav-btn-icon" class="fas fa-angle-double-down"></i>
+        </button>
       </div>
     </nav>
 
@@ -49,34 +52,20 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST">
+        <div class="error-msg-box">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span class="error-msg"></span>
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <form id="submit-tweet" action="/tweets" method="POST">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="btn-char-parent">
-            <button type="submit">Tweet</button>
+            <button id="tweet-button" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
       <section class="posted-tweets">
-        <article>
-          <header>
-            <i class="fas fa-user-secret fa-2x"></i>
-            <span class="username-in-tweet">Holmes</span>
-            <span class="user-handle">@sherlock</span>
-          </header>
-          <p>
-            You see, but you do not observe.
-          </p>
-          <footer class="each-tweet-footer">
-            <span class="tweet-post-date">5 days ago</span>
-            <div>
-              <i class="fas fa-flag fa-sm"></i>
-              <i class="fas fa-retweet fa-sm"></i>
-              <i class="far fa-heart fa-sm"></i>
-            </div>
-          </footer>
-        </article>
       </section>
     </main>
     <footer>
@@ -85,8 +74,3 @@
     <script src="./scripts/composer-char-counter.js"></script>
   </body>
 </html>
-
-<!-- <i class="fas fa-user-nurse"></i>
-<i class="fas fa-user-md"></i>
-<i class="fas fa-user-graduate"></i>
-<i class="fas fa-user-astronaut"></i> -->
