@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-  $("#page-footer").text(new Date().getFullYear());
+  //This external package ensures that tweet box grows vertically as you type.
   autosize($("#tweet-text"));
 
-  //Check to see if the window is top if not then display button
+  //Displays scroll up button if page is not already scrolled up to the top.
   $(window).scroll(function(){
     if ($(this).scrollTop() > 100) {
         $("#scroll-top").fadeIn();
@@ -12,12 +12,16 @@ $(document).ready(function(){
     }
   });
 
-  //Click event to scroll to top
+  //Scrolls page up when button is clicked.
   $("#scroll-top").click(function(){
-    $('html, body').animate({scrollTop : 0},800);
+    $('html, body').animate({
+      scrollTop : 0
+    }, 
+    800);
     return false;
   });
 
+  //Clicking the "Write New Tweet" button toggles the button icon and the compose tweet box.
   $("#write-new-tweet-btn").on("click", function() {
     $("#submit-tweet").slideToggle(function(){
       $("#tweet-text").focus();
@@ -25,6 +29,7 @@ $(document).ready(function(){
     });
   });
 
+  //This function creates the html for each tweet.
   function createTweetElement(tweetObj){
   const $tweet = `        
     <article>
@@ -48,6 +53,7 @@ $(document).ready(function(){
     return $tweet;
   };
 
+  //This function renders all the tweets on the page.
   function renderTweets(tweetObjArray) {
     let tweet = '';
     for (let tweetObj of tweetObjArray) {
@@ -57,16 +63,19 @@ $(document).ready(function(){
     };
   };
 
+  //Helper function to remove any code from user tweets prior to rendering.
   const escape = function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
 
+  //Helper function to provide posting date that is inserted in the footer of each tweet.
   function getDate(milliseconds) {
     return new Date(milliseconds).toDateString();
   }
 
+  //Ajax POST request when user submits a tweet.
   $("#submit-tweet").on('submit', function(e) {
     e.preventDefault();
 
@@ -87,6 +96,7 @@ $(document).ready(function(){
       $(".error-msg-box").slideDown("fast");
       return;
     }
+
     $.ajax({
         method: "POST", 
         url: "/tweets", 
@@ -101,23 +111,7 @@ $(document).ready(function(){
         .catch(err => console.log(err))
   });
 
-  // Alt way of sending $.ajax request:
-  // $("#submit-tweet").on('submit', function(e) {
-  //   e.preventDefault();
-  //   const $tweetBox = $(this).children("#tweet-text");
-  //   const tweetContent = $tweetBox.val();
-  //   console.log(tweetContent);
-  // $.ajax({
-  //   method: "POST", 
-  //   url: "/tweets", 
-  //   data: {text: tweetContent}
-  //   // data: $(this).serialize()
-  // })
-  //   .then(response => {
-  //     console.log(response);
-  // })
-  //   .catch(err => console.log(err))
-
+  //Ajax GET request to render all tweets on page.
   function loadTweets() {
     $.ajax({
       method: "GET",

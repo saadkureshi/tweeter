@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+  //Dynamically changes counter value and color as user types.
   $("#tweet-text").on("keyup", function(e) {
     const counter = $(this).siblings().children(".counter");
     const tweetLength = $(this).val().length;
