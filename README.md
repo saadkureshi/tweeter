@@ -18,3 +18,8 @@ This repository was created and used to practice my HTML, CSS, JS, jQuery and AJ
 - Chance
 - MD5
 - Node 5.10.x or above
+
+## Screenshots
+
+!["Tweeter homepage on a desktop screen"](https://raw.githubusercontent.com/saadkureshi/tweeter/master/docs/tweeter-homepage-desktop.png)
+!["Tweeter homepage on a mobile screen"](https://raw.githubusercontent.com/saadkureshi/tweeter/master/docs/tweeter-homepage-mobile.png)
