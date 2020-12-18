@@ -5,6 +5,7 @@
  */
 html {
   box-sizing: border-box;
+  overflow-y: overlay;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -33,7 +34,7 @@ body {
   width: 50px;
   position: fixed;
   bottom: 10px;
-  right: 10px;
+  right: 16px;
   z-index: 99;
 }
 
