@@ -1,37 +1,37 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
   //This external package ensures that tweet box grows vertically as you type.
   autosize($("#tweet-text"));
 
   //Displays scroll up button if page is not already scrolled up to the top.
-  $(window).scroll(function(){
+  $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
-        $("#scroll-top").fadeIn();
+      $("#scroll-top").fadeIn();
     } else {
-        $("#scroll-top").fadeOut();
+      $("#scroll-top").fadeOut();
     }
   });
 
   //Scrolls page up when button is clicked.
-  $("#scroll-top").click(function(){
+  $("#scroll-top").click(function() {
     $('html, body').animate({
       scrollTop : 0
-    }, 
+    },
     800);
     return false;
   });
 
   //Clicking the "Write New Tweet" button toggles the button icon and the compose tweet box.
   $("#write-new-tweet-btn").on("click", function() {
-    $("#submit-tweet").slideToggle(function(){
+    $("#submit-tweet").slideToggle(function() {
       $("#tweet-text").focus();
-      $("#nav-btn-icon").toggleClass("fa-angle-double-down fa-angle-double-up")
+      $("#nav-btn-icon").toggleClass("fa-angle-double-down fa-angle-double-up");
     });
   });
 
   //This function creates the html for each tweet.
-  function createTweetElement(tweetObj){
-  const $tweet = `        
+  function createTweetElement(tweetObj) {
+    const $tweet = `        
     <article>
     <header>
       <img src=${tweetObj.user.avatars} alt="profile-picture">
@@ -51,7 +51,7 @@ $(document).ready(function(){
     </footer>
     </article>`;
     return $tweet;
-  };
+  }
 
   //This function renders all the tweets on the page.
   function renderTweets(tweetObjArray) {
@@ -60,15 +60,15 @@ $(document).ready(function(){
       tweet = createTweetElement(tweetObj);
       $(".posted-tweets").prepend(tweet);
       tweet = '';
-    };
-  };
+    }
+  }
 
   //Helper function to remove any code from user tweets prior to rendering.
   const escape = function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
 
   //Helper function to provide posting date that is inserted in the footer of each tweet.
   function getDate(milliseconds) {
@@ -98,17 +98,17 @@ $(document).ready(function(){
     }
 
     $.ajax({
-        method: "POST", 
-        url: "/tweets", 
-        data: $(this).serialize()
+      method: "POST",
+      url: "/tweets",
+      data: $(this).serialize()
+    })
+      .then(() => {
+        $(this).children("#tweet-text").val("");
+        $(this).find(".counter").val(140);
+        $(".posted-tweets").empty();
+        loadTweets();
       })
-        .then(() => {
-          $(this).children("#tweet-text").val("");
-          $(this).find(".counter").val(140);
-          $(".posted-tweets").empty();
-          loadTweets();
-        })
-        .catch(err => console.log(err))
+      .catch(err => console.log(err));
   });
 
   //Ajax GET request to render all tweets on page.
@@ -118,11 +118,11 @@ $(document).ready(function(){
       url: "/tweets",
       dataType: "json"
     })
-    .then(response => {
-      renderTweets(response);
-    })
-    .catch(err => console.log(err));
-  };
+      .then(response => {
+        renderTweets(response);
+      })
+      .catch(err => console.log(err));
+  }
 
   loadTweets();
 
