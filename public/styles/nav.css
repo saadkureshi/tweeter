@@ -1,13 +1,11 @@
 nav {
-  position: fixed;
-  top: 0;
   width: 100%;
   font-family: 'Bungee', cursive; 
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 120px;
-  background-color: #4056A1;
+  background: linear-gradient(90deg, rgba(130,40,40,1) 0%, rgba(245,138,11,1) 78%);
   color: #FFFF;
 }
 
@@ -51,4 +49,5 @@ nav {
 #write-new-tweet-btn:focus {
   border: white solid thin;
 }
+
 

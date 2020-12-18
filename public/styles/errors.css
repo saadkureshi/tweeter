@@ -1,11 +1,11 @@
 .error-msg-box {
-  width: 50%;
   margin: auto;
   color: red;
   border: red solid;
   border-radius: 8px;
   display: none;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .fa-exclamation-triangle, .error-msg {

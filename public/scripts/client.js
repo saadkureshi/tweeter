@@ -1,5 +1,23 @@
 $(document).ready(function(){
 
+  $("#page-footer").text(new Date().getFullYear());
+  autosize($("#tweet-text"));
+
+  //Check to see if the window is top if not then display button
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > 100) {
+        $("#scroll-top").fadeIn();
+    } else {
+        $("#scroll-top").fadeOut();
+    }
+  });
+
+  //Click event to scroll to top
+  $("#scroll-top").click(function(){
+    $('html, body').animate({scrollTop : 0},800);
+    return false;
+  });
+
   $("#write-new-tweet-btn").on("click", function() {
     $("#submit-tweet").slideToggle(function(){
       $("#tweet-text").focus();
@@ -20,7 +38,7 @@ $(document).ready(function(){
     </p>
     <footer class="each-tweet-footer">
       <span class="tweet-post-date">${getDate(tweetObj.created_at)}</span>
-      <div>
+      <div id="tweet-footer-icons">
         <i class="fas fa-flag fa-sm"></i>
         <i class="fas fa-retweet fa-sm"></i>
         <i class="far fa-heart fa-sm"></i>

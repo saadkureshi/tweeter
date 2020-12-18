@@ -9,7 +9,7 @@ article:hover {
   font-weight: bold;
 }
 
-article:hover .user-handle {
+article:hover #tweet-footer-icons {
   visibility: visible;
 }
 
@@ -19,9 +19,12 @@ header {
   align-items: center;
 }
 
+#tweet-footer-icons {
+  visibility: hidden;
+}
+
 header > .user-handle {
   margin-left: auto;
-  visibility: hidden;
 }
 
 #the-actual-tweet {

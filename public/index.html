@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/each-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/errors.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -42,10 +43,11 @@
 
     <header class="main-header">
       <div>
-          <img src="/images/profile-hex.png"> 
+          <img src="/images/prof-pic.png"> 
       </div>
-      <div>
+      <div class="username-and-handle">
           <h2 class="user-profile-name"><strong>Saad</strong> <span>Kureshi</span></h2>
+          <h4 class="user-profile-name">@saadk95</h4>
       </div>
     </header>
 
@@ -58,7 +60,8 @@
           <i class="fas fa-exclamation-triangle"></i>
         </div>
         <form id="submit-tweet" action="/tweets" method="POST">
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          <label for="text">What are you humming about?</label>
+          <textarea rows="1" name="text" id="tweet-text"></textarea>
           <div class="btn-char-parent">
             <button id="tweet-button" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
@@ -67,10 +70,10 @@
       </section>
       <section class="posted-tweets">
       </section>
+      <button class="scrollToTop" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
     </main>
-    <footer>
-      2020
-    </footer>
     <script src="./scripts/composer-char-counter.js"></script>
   </body>
 </html>

@@ -16,6 +16,11 @@ main {
   font-weight: bold;
 }
 
+label[for="text"] {
+  display: block;
+  padding-bottom: 1rem;
+}
+
 #tweet-button {
   background-color: #4056A1;
   color: white;
@@ -27,6 +32,7 @@ main {
   resize: none;
   outline: none;
   width: 100%;
+  font-size: smaller;
 }
 
 #submit-tweet {
